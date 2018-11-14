@@ -1,0 +1,572 @@
+[Unit]
+Description="{{ item.value.Description | default("Service for " + item.key) }}"
+{% if item.value.Documentation is defined %}
+Documentation={{ item.value.Documentation }}
+{% endif -%}
+{% if item.value.Requires is defined %}
+Requires={{ item.value.Requires }}
+{% endif -%}
+{% if item.value.Requisite is defined %}
+Requisite={{ item.value.Requisite }}
+{% endif -%}
+{% if item.value.Wants is defined %}
+Wants={{ item.value.Wants }}
+{% endif -%}
+{% if item.value.BindsTo is defined %}
+BindsTo={{ item.value.BindsTo }}
+{% endif -%}
+{% if item.value.PartOf is defined %}
+PartOf={{ item.value.PartOf }}
+{% endif -%}
+{% if item.value.Conflicts is defined %}
+Conflicts={{ item.value.Conflicts }}
+{% endif -%}
+{% if item.value.Before is defined %}
+Before={{ item.value.Before }}
+{% endif -%}
+{% if item.value.After is defined %}
+After={{ item.value.After }}
+{% endif %}
+{% if item.value.OnFailure is defined %}
+OnFailure={{ item.value.OnFailure }}
+{% endif -%}
+{% if item.value.PropagatesReloadTo is defined %}
+PropagatesReloadTo={{ item.value.PropagatesReloadTo }}
+{% endif -%}
+{% if item.value.ReloadPropagatedFrom is defined %}
+ReloadPropagatedFrom={{ item.value.ReloadPropagatedFrom }}
+{% endif -%}
+{% if item.value.JoinsNamespaceOf is defined %}
+JoinsNamespaceOf={{ item.value.JoinsNamespaceOf }}
+{% endif -%}
+{% if item.value.RequiresMountsFor is defined %}
+RequiresMountsFor={{ item.value.RequiresMountsFor }}
+{% endif -%}
+{% if item.value.OnFailureJobMode is defined %}
+OnFailureJobMode={{ item.value.OnFailureJobMode }}
+{% endif -%}
+{% if item.value.IgnoreOnIsolate is defined %}
+IgnoreOnIsolate={{ item.value.IgnoreOnIsolate }}
+{% endif -%}
+{% if item.value.StopWhenUnneeded is defined %}
+StopWhenUnneeded={{ item.value.StopWhenUnneeded }}
+{% endif -%}
+{% if item.value.RefuseManualStart is defined %}
+RefuseManualStart={{ item.value.RefuseManualStart }}
+{% endif -%}
+{% if item.value.RefuseManualStop is defined %}
+RefuseManualStop={{ item.value.RefuseManualStop }}
+{% endif -%}
+{% if item.value.AllowIsolate is defined %}
+AllowIsolate={{ item.value.AllowIsolate }}
+{% endif -%}
+{% if item.value.DefaultDependencies is defined %}
+DefaultDependencies={{ item.value.DefaultDependencies }}
+{% endif -%}
+{% if item.value.CollectMode is defined %}
+CollectMode={{ item.value.CollectMode }}
+{% endif -%}
+{% if item.value.JobTimeoutSec is defined %}
+JobTimeoutSec={{ item.value.JobTimeoutSec }}
+{% endif -%}
+{% if item.value.JobRunningTimeoutSec is defined %}
+JobRunningTimeoutSec={{ item.value.JobRunningTimeoutSec }}
+{% endif -%}
+{% if item.value.JobTimeoutAction is defined %}
+JobTimeoutAction={{ item.value.JobTimeoutAction }}
+{% endif -%}
+{% if item.value.JobTimeoutRebootArgument is defined %}
+JobTimeoutRebootArgument={{ item.value.JobTimeoutRebootArgument }}
+{% endif -%}
+{#
+{% if item.value.StartLimitIntervalSec is defined %}
+StartLimitIntervalSec=interval, StartLimitBurst=burst
+{% endif -%}
+#}
+{% if item.value.StartLimitAction is defined %}
+StartLimitAction={{ item.value.StartLimitAction }}
+{% endif -%}
+{% if item.value.FailureAction is defined %}
+FailureAction={{ item.value.FailureAction }}
+{% endif -%}
+{% if item.value.SuccessAction is defined %}
+SuccessAction={{ item.value.SuccessAction }}
+{% endif -%}
+{% if item.value.RebootArgument is defined %}
+RebootArgument={{ item.value.RebootArgument }}
+{% endif -%}
+{% if item.value.ConditionArchitecture is defined %}
+ConditionArchitecture={{ item.value.ConditionArchitecture }}
+{% endif -%}
+{% if item.value.ConditionVirtualization is defined %}
+ConditionVirtualization={{ item.value.ConditionVirtualization }}
+{% endif -%}
+{% if item.value.ConditionHost is defined %}
+ConditionHost={{ item.value.ConditionHost }}
+{% endif -%}
+{% if item.value.ConditionKernelCommandLine is defined %}
+ConditionKernelCommandLine={{ item.value.ConditionKernelCommandLine }}
+{% endif -%}
+{% if item.value.ConditionKernelVersion is defined %}
+ConditionKernelVersion={{ item.value.ConditionKernelVersion }}
+{% endif -%}
+{% if item.value.ConditionSecurity is defined %}
+ConditionSecurity={{ item.value.ConditionSecurity }}
+{% endif -%}
+{% if item.value.ConditionCapability is defined %}
+ConditionCapability={{ item.value.ConditionCapability }}
+{% endif -%}
+{% if item.value.ConditionACPower is defined %}
+ConditionACPower={{ item.value.ConditionACPower }}
+{% endif -%}
+{% if item.value.ConditionNeedsUpdate is defined %}
+ConditionNeedsUpdate={{ item.value.ConditionNeedsUpdate }}
+{% endif -%}
+{% if item.value.ConditionFirstBoot is defined %}
+ConditionFirstBoot={{ item.value.ConditionFirstBoot }}
+{% endif -%}
+{% if item.value.ConditionPathExists is defined %}
+ConditionPathExists={{ item.value.ConditionPathExists }}
+{% endif -%}
+{% if item.value.ConditionPathExistsGlob is defined %}
+ConditionPathExistsGlob={{ item.value.ConditionPathExistsGlob }}
+{% endif -%}
+{% if item.value.ConditionPathIsDirectory is defined %}
+ConditionPathIsDirectory={{ item.value.ConditionPathIsDirectory }}
+{% endif -%}
+{% if item.value.ConditionPathIsSymbolicLink is defined %}
+ConditionPathIsSymbolicLink={{ item.value.ConditionPathIsSymbolicLink }}
+{% endif -%}
+{% if item.value.ConditionPathIsMountPoint is defined %}
+ConditionPathIsMountPoint={{ item.value.ConditionPathIsMountPoint }}
+{% endif -%}
+{% if item.value.ConditionPathIsReadWrite is defined %}
+ConditionPathIsReadWrite={{ item.value.ConditionPathIsReadWrite }}
+{% endif -%}
+{% if item.value.ConditionDirectoryNotEmpty is defined %}
+ConditionDirectoryNotEmpty={{ item.value.ConditionDirectoryNotEmpty }}
+{% endif -%}
+{% if item.value.ConditionFileNotEmpty is defined %}
+ConditionFileNotEmpty={{ item.value.ConditionFileNotEmpty }}
+{% endif -%}
+{% if item.value.ConditionFileIsExecutable is defined %}
+ConditionFileIsExecutable={{ item.value.ConditionFileIsExecutable }}
+{% endif -%}
+{% if item.value.ConditionUser is defined %}
+ConditionUser={{ item.value.ConditionUser }}
+{% endif -%}
+{% if item.value.ConditionGroup is defined %}
+ConditionGroup={{ item.value.ConditionGroup }}
+{% endif -%}
+{% if item.value.ConditionControlGroupController is defined %}
+ConditionControlGroupController={{ item.value.ConditionControlGroupController }}
+{% endif -%}
+{% if item.value.AssertArchitecture is defined %}
+AssertArchitecture={{ item.value.AssertArchitecture }}
+{% endif -%}
+{% if item.value.AssertVirtualization is defined %}
+AssertVirtualization={{ item.value.AssertVirtualization }}
+{% endif -%}
+{% if item.value.AssertHost is defined %}
+AssertHost={{ item.value.AssertHost }}
+{% endif -%}
+{% if item.value.AssertKernelCommandLine is defined %}
+AssertKernelCommandLine={{ item.value.AssertKernelCommandLine }}
+{% endif -%}
+{% if item.value.AssertKernelVersion is defined %}
+AssertKernelVersion={{ item.value.AssertKernelVersion }}
+{% endif -%}
+{% if item.value.AssertSecurity is defined %}
+AssertSecurity={{ item.value.AssertSecurity }}
+{% endif -%}
+{% if item.value.AssertCapability is defined %}
+AssertCapability={{ item.value.AssertCapability }}
+{% endif -%}
+{% if item.value.AssertACPower is defined %}
+AssertACPower={{ item.value.AssertACPower }}
+{% endif -%}
+{% if item.value.AssertNeedsUpdate is defined %}
+AssertNeedsUpdate={{ item.value.AssertNeedsUpdate }}
+{% endif -%}
+{% if item.value.AssertFirstBoot is defined %}
+AssertFirstBoot={{ item.value.AssertFirstBoot }}
+{% endif -%}
+{% if item.value.AssertPathExists is defined %}
+AssertPathExists={{ item.value.AssertPathExists }}
+{% endif -%}
+{% if item.value.AssertPathExistsGlob is defined %}
+AssertPathExistsGlob={{ item.value.AssertPathExistsGlob }}
+{% endif -%}
+{% if item.value.AssertPathIsDirectory is defined %}
+AssertPathIsDirectory={{ item.value.AssertPathIsDirectory }}
+{% endif -%}
+{% if item.value.AssertPathIsSymbolicLink is defined %}
+AssertPathIsSymbolicLink={{ item.value.AssertPathIsSymbolicLink }}
+{% endif -%}
+{% if item.value.AssertPathIsMountPoint is defined %}
+AssertPathIsMountPoint={{ item.value.AssertPathIsMountPoint }}
+{% endif -%}
+{% if item.value.AssertPathIsReadWrite is defined %}
+AssertPathIsReadWrite={{ item.value.AssertPathIsReadWrite }}
+{% endif -%}
+{% if item.value.AssertDirectoryNotEmpty is defined %}
+AssertDirectoryNotEmpty={{ item.value.AssertDirectoryNotEmpty }}
+{% endif -%}
+{% if item.value.AssertFileNotEmpty is defined %}
+AssertFileNotEmpty={{ item.value.AssertFileNotEmpty }}
+{% endif -%}
+{% if item.value.AssertFileIsExecutable is defined %}
+AssertFileIsExecutable={{ item.value.AssertFileIsExecutable }}
+{% endif -%}
+{% if item.value.AssertUser is defined %}
+AssertUser={{ item.value.AssertUser }}
+{% endif -%}
+{% if item.value.AssertGroup is defined %}
+AssertGroup={{ item.value.AssertGroup }}
+{% endif -%}
+{% if item.value.AssertControlGroupController is defined %}
+AssertControlGroupController={{ item.value.AssertControlGroupController }}
+{% endif -%}
+{% if item.value.SourcePath is defined %}
+SourcePath={{ item.value.SourcePath }}
+{% endif -%}
+
+[Service]
+{% if item.value.Type is defined %}
+Type={{ item.value.Type }}
+{% endif -%}
+{% if item.value.RemainAfterExit is defined %}
+RemainAfterExit={{ item.value.RemainAfterExit }}
+{% endif -%}
+{% if item.value.GuessMainPID is defined %}
+GuessMainPID={{ item.value.GuessMainPID }}
+{% endif -%}
+{% if item.value.PIDFile is defined %}
+PIDFile={{ item.value.PIDFile }}
+{% endif -%}
+{% if item.value.BusName is defined %}
+BusName={{ item.value.BusName }}
+{% endif -%}
+{% if item.value.ExecStart is defined %}
+ExecStart={{ item.value.ExecStart }}
+{% endif -%}
+{% if item.value.ExecStartPre is defined %}
+ExecStartPre={{ item.value.ExecStartPre }}
+{% endif -%}
+{% if item.value.ExecStartPost is defined %}
+ExecStartPost={{ item.value.ExecStartPost }}
+{% endif -%}
+{% if item.value.ExecReload is defined %}
+ExecReload={{ item.value.ExecReload }}
+{% endif -%}
+{% if item.value.ExecStop is defined %}
+ExecStop={{ item.value.ExecStop }}
+{% endif -%}
+{% if item.value.ExecStopPost is defined %}
+ExecStopPost={{ item.value.ExecStopPost }}
+{% endif -%}
+{% if item.value.Restart is defined %}
+RestartSec={{ item.value.RestartSec | default('30') }}
+Restart={{ item.value.Restart }}
+{% endif -%}
+{% if item.value.TimeoutStartSec is defined %}
+TimeoutStartSec= {{ item.value.TimeoutStartSec }}
+{% if item.value.TimeoutSec is defined %}
+TimeoutSec={{ item.value.TimeoutSec }}
+{% endif -%}
+{% if item.value.RuntimeMaxSec is defined %}
+RuntimeMaxSec={{ item.value.RuntimeMaxSec }}
+{% endif -%}
+{% if item.value.WatchdogSec is defined %}
+WatchdogSec={{ item.value.WatchdogSec }}
+{% endif -%}
+{% if item.value.SuccessExitStatus is defined %}
+SuccessExitStatus={{ item.value.SuccessExitStatus }}
+{% endif -%}
+{% if item.value.RestartPreventExitStatus is defined %}
+RestartPreventExitStatus={{ item.value.RestartPreventExitStatus }}
+{% endif -%}
+{% if item.value.RestartForceExitStatus is defined %}
+RestartForceExitStatus={{ item.value.RestartForceExitStatus }}
+{% endif -%}
+{% if item.value.PermissionsStartOnly is defined %}
+PermissionsStartOnly={{ item.value.PermissionsStartOnly }}
+{% endif -%}
+{% if item.value.RootDirectoryStartOnly is defined %}
+RootDirectoryStartOnly={{ item.value.RootDirectoryStartOnly }}
+{% endif -%}
+{% if item.value.NonBlocking is defined %}
+NonBlocking={{ item.value.NonBlocking }}
+{% endif -%}
+{% if item.value.NotifyAccess is defined %}
+NotifyAccess={{ item.value.NotifyAccess }}
+{% endif -%}
+{% if item.value.Sockets is defined %}
+Sockets={{ item.value.Sockets }}
+{% endif -%}
+{% if item.value.FileDescriptorStoreMax is defined %}
+FileDescriptorStoreMax={{ item.value.FileDescriptorStoreMax }}
+{% endif -%}
+{% if item.value.USBFunctionDescriptors is defined %}
+USBFunctionDescriptors={{ item.value.USBFunctionDescriptors }}
+{% endif -%}
+{% if item.value.USBFunctionStrings is defined %}
+USBFunctionStrings={{ item.value.USBFunctionStrings }}
+{% endif -%}
+
+{# Paths #}
+{% if item.value.WorkingDirectory is defined %}
+WorkingDirectory={{ item.value.WorkingDirectory }}
+{% endif -%}
+{% if item.value.RootDirectory is defined %}
+RootDirectory={{ item.value.RootDirectory }}
+{% if item.value.WorkingDirectory is defined %}
+{% endif -%}
+{% if item.value.RootImage is defined %}
+RootImage={{ item.value.RootImage }}
+{% endif -%}
+{% if item.value.MountAPIVFS is defined %}
+MountAPIVFS={{ item.value.MountAPIVFS }}
+{% endif -%}
+{% if item.value.BindPaths is defined %}
+BindPaths={{ item.value.BindPaths }}
+{% endif -%}
+{% if item.value.BindReadOnlyPaths is defined %}
+BindReadOnlyPaths={{ item.value.BindReadOnlyPaths }}
+{% endif -%}
+
+{# Credentials #}
+{% if item.value.User is defined %}
+User={{ item.value.User }}
+{% endif -%}
+{% if item.value.Group is defined %}
+Group={{ item.value.Group }}
+{% endif -%}
+{% if item.value.DynamicUser is defined %}
+DynamicUser={{ item.value.DynamicUser }}
+{% endif -%}
+{% if item.value.SupplementaryGroups is defined %}
+SupplementaryGroups={{ item.value.SupplementaryGroups }}
+{% endif -%}
+{% if item.value.PAMName is defined %}
+PAMName={{ item.value.PAMName }}
+{% endif -%}
+
+{#
+# Mandatory access control
+SELinuxContext=
+AppArmorProfile=
+SmackProcessLabel=
+#}
+
+# Process Properties
+{% if item.value.LimitCPU is defined %}
+LimitCPU={{ item.value.LimitCPU }}
+{% endif -%}
+{% if item.value. is defined %}
+LimitFSIZE={{ item.value.LimitFSIZE }}
+{% endif -%}
+{% if item.value.LimitDATA is defined %}
+LimitDATA={{ item.value.LimitDATA }}
+{% endif -%}
+{% if item.value.LimitSTACK is defined %}
+LimitSTACK={{ item.value.LimitSTACK }}
+{% endif -%}
+{% if item.value.LimitCORE is defined %}
+LimitCORE={{ item.value.LimitCORE }}
+{% endif -%}
+{% if item.value.LimitRSS is defined %}
+LimitRSS={{ item.value.LimitRSS }}
+{% endif -%}
+{% if item.value.LimitNOFILE is defined %}
+LimitNOFILE={{ item.value.LimitNOFILE }}
+{% endif -%}
+{% if item.value.LimitAS is defined %}
+LimitAS={{ item.value.LimitAS }}
+{% endif -%}
+{% if item.value.LimitNPROC is defined %}
+LimitNPROC={{ item.value.LimitNPROC }}
+{% endif -%}
+{% if item.value.LimitMEMLOCK is defined %}
+LimitMEMLOCK={{ item.value.LimitMEMLOCK }}
+{% endif -%}
+{% if item.value.LimitLOCKS is defined %}
+LimitLOCKS={{ item.value.LimitLOCKS }}
+{% endif -%}
+{% if item.value.LimitSIGPENDING is defined %}
+LimitSIGPENDING={{ item.value.LimitSIGPENDING }}
+{% endif -%}
+{% if item.value.LimitMSGQUEUE is defined %}
+LimitMSGQUEUE={{ item.value.LimitMSGQUEUE }}
+{% endif -%}
+{% if item.value.LimitNICE is defined %}
+LimitNICE={{ item.value.LimitNICE }}
+{% endif -%}
+{% if item.value.LimitRTPRIO is defined %}
+LimitRTPRIO={{ item.value.LimitRTPRIO }}
+{% endif -%}
+{% if item.value.LimitRTTIME is defined %}
+LimitRTTIME={{ item.value.LimitRTTIME }}
+{% endif -%}
+{% if item.value.UMask is defined %}
+UMask={{ item.value.UMask }}
+{% endif -%}
+{% if item.value.KeyringMode is defined %}
+KeyringMode={{ item.value.KeyringMode }}
+{% endif -%}
+{% if item.value.OOMScoreAdjust is defined %}
+OOMScoreAdjust={{ item.value.OOMScoreAdjust }}
+{% endif -%}
+{% if item.value.TimerSlackNSec is defined %}
+TimerSlackNSec={{ item.value.TimerSlackNSec }}
+{% endif -%}
+{% if item.value.Personality is defined %}
+Personality={{ item.value.Personality }}
+{% endif -%}
+{% if item.value.IgnoreSIGPIPE is defined %}
+IgnoreSIGPIPE={{ item.value.IgnoreSIGPIPE }}
+{% endif -%}
+
+{# Scheduling#}
+{% if item.value.Nice is defined %}
+Nice={{ item.value.Nice }}
+{% endif -%}
+{#
+CPUSchedulingPolicy=
+CPUSchedulingPriority=
+CPUSchedulingResetOnFork=
+CPUAffinity=
+IOSchedulingClass=
+IOSchedulingPriority=
+
+#Sandboxing
+ProtectSystem=
+ProtectHome=
+RuntimeDirectory=
+StateDirectory=
+CacheDirectory=
+LogsDirectory=
+ConfigurationDirectory=
+RuntimeDirectoryMode=
+StateDirectoryMode=
+CacheDirectoryMode=
+LogsDirectoryMode=
+ConfigurationDirectoryMode=
+RuntimeDirectoryPreserve=
+ReadWritePaths=
+ReadOnlyPaths=
+InaccessiblePaths=
+TemporaryFileSystem=
+PrivateTmp=
+PrivateDevices=
+PrivateNetwork=
+PrivateUsers=
+ProtectKernelTunables=
+ProtectKernelModules=
+ProtectControlGroups=
+RestrictAddressFamilies=
+RestrictNamespaces=
+LockPersonality=
+MemoryDenyWriteExecute=
+RestrictRealtime=
+RemoveIPC=
+PrivateMounts=
+MountFlags=
+#}
+
+{# Systemcall filtering#}
+{% if item.value.SystemCallFilter is defined %}
+SystemCallFilter={{ item.SystemCallFilter. }}
+{% endif -%}
+{% if item.value.SystemCallErrorNumber is defined %}
+SystemCallErrorNumber={{ item.value.SystemCallErrorNumber }}
+{% endif -%}
+{% if item.value.SystemCallArchitectures is defined %}
+SystemCallArchitectures={{ item.value.SystemCallArchitectures }}
+{% endif -%}
+
+{# Environment#}
+{% if item.value.Environment is defined %}
+{% for env in item.value.Environment %}
+Environment={{ env }}
+{% endfor -%}
+{% endif -%}
+{% if item.value.EnvironmentFile is defined %}
+EnvironmentFile={{ item.value.EnvironmentFile }}
+{% endif -%}
+{% if item.value.PassEnvironment is defined %}
+PassEnvironment={{ item.value.PassEnvironment }}
+{% endif -%}
+{% if item.value.EnvironmentFile is defined %}
+UnsetEnvironment={{ item.value.UnsetEnvironment }}
+{% endif -%}
+
+
+{% if item.value.StandardInput is defined %}
+StandardInput={{ item.value.StandardInput }}
+{% endif -%}
+{% if item.value.StandardOutput is defined %}
+StandardOutput={{ item.value.StandardOutput }}
+{% endif -%}
+{% if item.value.StandardError is defined %}
+StandardError={{ item.value.StandardError }}
+{% endif %}
+{% if item.value.StandardInputText is defined %}
+StandardInputText={{ item.value.StandardInputText }}
+{% endif -%}
+{% if item.value.StandardInputData is defined %}
+StandardInputData={{ item.value.StandardInputData }}
+{% endif -%}
+{% if item.value.LogLevelMax is defined %}
+LogLevelMax={{ item.value.LogLevelMax }}
+{% endif -%}
+{% if item.value.LogExtraFields is defined %}
+LogExtraFields={{ item.value.LogExtraFields }}
+{% endif -%}
+{% if item.value.SyslogIdentifier is defined %}
+SyslogIdentifier={{ item.value.SyslogIdentifier }}
+{% endif -%}
+{% if item.value.SyslogFacility is defined %}
+SyslogFacility={{ item.value.SyslogFacility }}
+{% endif -%}
+{% if item.value.SyslogLevel is defined %}
+SyslogLevel={{ item.value.SyslogLevel }}
+{% endif -%}
+{% if item.value.SyslogLevelPrefix is defined %}
+SyslogLevelPrefix={{ item.value.SyslogLevelPrefix }}
+{% endif -%}
+{% if item.value.TTYPath is defined %}
+TTYPath={{ item.value.TTYPath }}
+{% endif -%}
+{% if item.value.TTYReset is defined %}
+TTYReset={{ item.value.TTYReset }}
+{% endif -%}
+{% if item.value.TTYVHangup is defined %}
+TTYVHangup={{ item.value.TTYVHangup }}
+{% endif -%}
+{% if item.value.TTYVTDisallocate is defined %}
+TTYVTDisallocate={{ item.value.TTYVTDisallocate }}
+{% endif -%}
+{% if item.value.UtmpIdentifier is defined %}
+UtmpIdentifier={{ item.value.UtmpIdentifier }}
+{% endif -%}
+{% if item.value.UtmpMode is defined %}
+UtmpMode={{ item.value.UtmpMode }}
+{% endif -%}
+
+[Install]
+{% if item.value.WantedBy is defined %}
+Alias={{ item.value.Alias }}
+{% endif -%}
+{% if item.value.WantedBy is defined %}
+WantedBy={{ item.value.WantedBy }}
+{% endif -%}
+{% if item.value.RequiredBy is defined %}
+RequiredBy={{ item.value.RequiredBy }}
+{% endif %}
+{% if item.value.Also is defined %}
+Also={{ item.value.Also }}
+{% endif -%}
+{% if item.value.DefaultInstance is defined %}
+DefaultInstance={{ item.value.DefaultInstance }}
+{% endif -%}

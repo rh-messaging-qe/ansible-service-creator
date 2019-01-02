@@ -21,9 +21,7 @@ user="{{ item.value.User }}"
 {% endif -%}
 
 name=`basename $0`
-{% if item.value.PIDFile is defined %}
-pid_file="{{ item.value.PIDFile }}"
-{% endif -%}
+pid_file="{{ item.value.PIDFile | default('/var/log/$name.pid') }}"
 
 stdout_log={{ item.value.StandardOutput | default("/var/log/$name.log") }}
 stderr_log={{ item.value.StandardError | default("/var/log/$name.err") }}

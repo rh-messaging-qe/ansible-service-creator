@@ -17,7 +17,7 @@
   service:
     name: "{{ item.key }}"
     enabled: "{{ item.value.Enabled | default(False) }}"
-    state: "{{ item.value.State | default(stopped) }}"
+    state: "{{ item.value.State | default('stopped') }}"
   with_dict: "{{ service_opts }}"
   tags:
     - service-posthook

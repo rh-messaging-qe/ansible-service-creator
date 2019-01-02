@@ -17,7 +17,7 @@
   template:
     src: "templates/initd.j2"
     dest: "/etc/init.d/{{ item.key }}"
-    mode: 0664
+    mode: 0755
   with_dict: "{{ service_opts }}"
   tags:
     - sysv-service

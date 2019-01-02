@@ -271,6 +271,7 @@ Restart={{ item.value.Restart }}
 {% endif -%}
 {% if item.value.TimeoutStartSec is defined %}
 TimeoutStartSec= {{ item.value.TimeoutStartSec }}
+{% endif -%}
 {% if item.value.TimeoutSec is defined %}
 TimeoutSec={{ item.value.TimeoutSec }}
 {% endif -%}
@@ -320,7 +321,6 @@ WorkingDirectory={{ item.value.WorkingDirectory }}
 {% endif -%}
 {% if item.value.RootDirectory is defined %}
 RootDirectory={{ item.value.RootDirectory }}
-{% if item.value.WorkingDirectory is defined %}
 {% endif -%}
 {% if item.value.RootImage is defined %}
 RootImage={{ item.value.RootImage }}
@@ -363,7 +363,7 @@ SmackProcessLabel=
 {% if item.value.LimitCPU is defined %}
 LimitCPU={{ item.value.LimitCPU }}
 {% endif -%}
-{% if item.value. is defined %}
+{% if item.value.LimitFSIZE is defined %}
 LimitFSIZE={{ item.value.LimitFSIZE }}
 {% endif -%}
 {% if item.value.LimitDATA is defined %}
@@ -476,7 +476,7 @@ MountFlags=
 
 {# Systemcall filtering#}
 {% if item.value.SystemCallFilter is defined %}
-SystemCallFilter={{ item.SystemCallFilter. }}
+SystemCallFilter={{ item.value.SystemCallFilter }}
 {% endif -%}
 {% if item.value.SystemCallErrorNumber is defined %}
 SystemCallErrorNumber={{ item.value.SystemCallErrorNumber }}

@@ -22,7 +22,7 @@
 
 - name: SysV service
   include: sysv.yml
-  when: sysv_check.stat.exists == True
+  when: sysv_check.stat.exists == True and systemd_check.stat.exists == False
 
 # - name: Upstart
 #   include: upstart.yml

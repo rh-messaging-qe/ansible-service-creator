@@ -555,7 +555,7 @@ UtmpMode={{ item.value.UtmpMode }}
 {% endif -%}
 
 [Install]
-{% if item.value.WantedBy is defined %}
+{% if item.value.Alias is defined %}
 Alias={{ item.value.Alias }}
 {% endif -%}
 {% if item.value.WantedBy is defined %}

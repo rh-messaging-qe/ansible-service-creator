@@ -13,6 +13,20 @@
 # limitations under the License.
 ---
 
-- name: Install broker on Linux machine
-  when: ansible_os_family == 'Linux'
-  include: main_linux.yml
+- name: Check
+  include: check.yml
+
+- name: Systemd service
+  include: systemd.yml
+  when: systemd_check.stat.exists == True
+
+- name: SysV service
+  include: sysv.yml
+  when: sysv_check.stat.exists == True and systemd_check.stat.exists == False
+
+# - name: Upstart
+#   include: upstart.yml
+#   when: upstart_check.stat.exists == True
+
+- name: Service posthook
+  include: posthook.yml

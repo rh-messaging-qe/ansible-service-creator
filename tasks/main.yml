@@ -13,6 +13,6 @@
 # limitations under the License.
 ---
 
-- name: Install broker on Linux machine
-  when: ansible_os_family == 'Linux'
+- name: Create service on Linux machine
+  when: ansible_system == 'Linux'
   include: main_linux.yml

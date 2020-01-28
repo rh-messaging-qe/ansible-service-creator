@@ -18,6 +18,6 @@
     name: "{{ item.key }}"
     enabled: "{{ item.value.Enabled | default(False) }}"
     state: "{{ item.value.State | default('stopped') }}"
-  with_dict: "{{ service_opts }}"
+  loop: "{{ service_opts | dict2items }}"
   tags:
     - service-posthook
